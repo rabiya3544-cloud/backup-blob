@@ -15,7 +15,7 @@ function safeRelative(p: string) {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const prefix = searchParams.get('prefix') || 'production/';
+  const prefix = searchParams.get('prefix') ?? '';
 
   const expected = process.env.BACKUP_PASSWORD;
   if (expected) {
